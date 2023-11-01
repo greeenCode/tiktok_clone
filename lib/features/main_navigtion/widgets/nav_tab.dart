@@ -7,12 +7,14 @@ class NavTab extends StatelessWidget {
     super.key,
     required this.text,
     required this.icon,
+    required this.seclectedIcon,
     required this.isSelected,
     required this.onTap,
   });
 
   final String text;
   final IconData icon;
+  final IconData seclectedIcon;
   final bool isSelected;
   final Function()? onTap;
 
@@ -30,7 +32,7 @@ class NavTab extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 FaIcon(
-                  icon,
+                  isSelected ? seclectedIcon : icon,
                   color: Colors.white,
                 ),
                 Gaps.v6,
