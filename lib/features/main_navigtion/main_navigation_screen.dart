@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
@@ -15,10 +17,23 @@ class MainNavigationScreen extends StatefulWidget {
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _selectedIndex = 0;
+  bool isPressed = false;
 
   void _onTap(int index) {
     setState(() {
       _selectedIndex = index;
+    });
+  }
+
+  void _onTapDown(TapDownDetails details) {
+    setState(() {
+      isPressed = true;
+    });
+
+    Timer(const Duration(milliseconds: 1000), () {
+      setState(() {
+        isPressed = false;
+      });
     });
   }
 
@@ -79,8 +94,11 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
               ),
               Gaps.h24,
               GestureDetector(
+                onTapDown: (details) => _onTapDown(details),
                 onTap: _onPostVideoButton,
-                child: const PostVideoButton(),
+                child: PostVideoButton(
+                  isPressed: isPressed,
+                ),
               ),
               Gaps.h24,
               NavTab(
