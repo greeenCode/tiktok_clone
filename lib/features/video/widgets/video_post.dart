@@ -27,6 +27,7 @@ class _VideoPostState extends State<VideoPost>
 
   final Duration _animationDuration = const Duration(milliseconds: 200);
   bool _isPaused = false;
+  bool _isTextTapped = false;
 
   late final AnimationController _animationController;
 
@@ -79,6 +80,11 @@ class _VideoPostState extends State<VideoPost>
     });
   }
 
+  void _onTextTap() {
+    _isTextTapped = !_isTextTapped;
+    setState(() {});
+  }
+
   @override
   void dispose() {
     _videoPlayerController.dispose();
@@ -128,13 +134,14 @@ class _VideoPostState extends State<VideoPost>
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             bottom: 20,
             left: 10,
+            right: 70,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "@singing",
                   style: TextStyle(
                     color: Colors.white,
@@ -143,11 +150,16 @@ class _VideoPostState extends State<VideoPost>
                   ),
                 ),
                 Gaps.v10,
-                Text(
-                  "This is my lovely wheelchair",
-                  style: TextStyle(
-                    fontSize: Sizes.size16,
-                    color: Colors.white,
+                GestureDetector(
+                  onTap: _onTextTap,
+                  child: Text(
+                    _isTextTapped
+                        ? "This is my lovely wheelchair. The featurdes of lifting, reclining and tilting are included. See briefly"
+                        : "This is my lovely wheelchair... See more",
+                    style: const TextStyle(
+                      fontSize: Sizes.size16,
+                      color: Colors.white,
+                    ),
                   ),
                 )
               ],
