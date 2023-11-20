@@ -27,6 +27,9 @@ class TikTokApp extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Color(0xFFE9435A),
+        ),
       ),
       // home: const SignUpScreen(),
       home: const MainNavigationScreen(),
