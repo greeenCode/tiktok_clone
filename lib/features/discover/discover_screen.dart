@@ -42,10 +42,14 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
 
   void _onTextFieldXmarkPressed() {
     _textEditingController.clear();
+    setState(() {
+      _isTextFieldNotEmpty = _textEditingController.text.isNotEmpty;
+    });
   }
 
   void _onTextFieldArrowUpPressed() {
     FocusScope.of(context).unfocus();
+    _onTextFieldXmarkPressed();
   }
 
   @override
