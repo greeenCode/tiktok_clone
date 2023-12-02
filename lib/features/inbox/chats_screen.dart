@@ -59,16 +59,16 @@ class _ChatsScreenState extends State<ChatsScreen> {
       leading: const CircleAvatar(
         radius: 30,
         foregroundImage: NetworkImage(
-          "https://avatars.githubusercontent.com/u/3612017",
+          "https://lh3.googleusercontent.com/a/ACg8ocIa2qNWirbSGDS9jvkLvufhQ2pT46e0Dsq9DAKb8gWErA=s288-c-no",
         ),
-        child: Text('니꼬'),
+        child: Text('Singing'),
       ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Text(
-            "Lynn ($index)",
+            "Maroon7 ($index)",
             style: const TextStyle(fontWeight: FontWeight.w600),
           ),
           Text(
