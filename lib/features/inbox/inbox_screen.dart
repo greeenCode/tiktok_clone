@@ -14,7 +14,7 @@ class InboxScreen extends StatefulWidget {
 class _InboxScreenState extends State<InboxScreen> {
   void _onDMPressed() {
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const ChtasScreen(),
+      builder: (context) => const ChatsScreen(),
     ));
   }
 
